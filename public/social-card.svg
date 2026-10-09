@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f5f5ef"/>
+  <rect x="65" y="65" width="54" height="54" rx="14" fill="#234e43"/>
+  <text x="78" y="100" font-family="Arial,sans-serif" font-size="24" fill="#e4f19e">JC</text>
+  <text x="140" y="98" font-family="Arial,sans-serif" font-size="24" fill="#252e29">Joshua Caburian</text>
+  <text x="65" y="243" font-family="Arial,sans-serif" font-size="63" fill="#252e29">Thoughtful software.</text>
+  <text x="65" y="320" font-family="Arial,sans-serif" font-size="63" fill="#727c67">All the way through.</text>
+  <text x="68" y="391" font-family="Arial,sans-serif" font-size="25" fill="#62695f">Software Engineer · Full-stack / Automation / Frontend</text>
+  <path d="M65 489h1070" stroke="#dce0d5"/>
+  <text x="65" y="544" font-family="Arial,sans-serif" font-size="20" fill="#234e43">SignalSource</text>
+  <text x="283" y="544" font-family="Arial,sans-serif" font-size="20" fill="#234e43">Opportunity Scout</text>
+  <text x="552" y="544" font-family="Arial,sans-serif" font-size="20" fill="#234e43">Stratus One</text>
+  <g transform="translate(878 185) rotate(-8)"><rect width="220" height="83" rx="12" fill="#e5ecd9" stroke="#c6d0bc"/><rect y="95" width="220" height="83" rx="12" fill="#d3dfc5" stroke="#c6d0bc"/><rect y="190" width="220" height="83" rx="12" fill="#234e43"/><path d="M22 28h130M22 43h95M22 123h150M22 138h105M22 218h125M22 233h87" fill="none" stroke="#819774" stroke-width="4"/></g>
+</svg>

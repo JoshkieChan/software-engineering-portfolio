@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.research/
+.env*
+!.env.example
+test-results/
+playwright-report/
+artifacts/
+*.local
