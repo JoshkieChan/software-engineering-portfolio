@@ -58,7 +58,7 @@ export const projects: Project[] = [
       'Edge Functions validate input and derive pricing and duration. PostgreSQL serializes schedule writes and commits capacity segments atomically, rolling back conflicts. Eligible long jobs span two service days. Private photo capabilities, signed owner retrieval, Helcim checkout/webhook handling, and idempotent Resend confirmation claims complete the integration architecture.',
     status:
       'Staging verified booking/capacity behavior, private photo upload/retrieval, and Resend test-recipient acceptance. Human inbox delivery and live payment processing/reconciliation remain unverified. Payment reconciliation is manual; production Vercel hosting is paused.',
-    repository: 'Detailer-Website',
+    repository: 'Signal-Source',
     sourcePath: 'supabase/functions/create-booking/index.ts',
     architecture:
       'React / TypeScript → Supabase Edge Functions → PostgreSQL scheduling transactions; Helcim payments and Resend email.',

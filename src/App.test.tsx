@@ -17,7 +17,7 @@ describe('recruiter navigation', () => {
       within(cards[0]).getByRole('link', {
         name: /View SignalSource on GitHub/i,
       }),
-    ).toHaveAttribute('href', 'https://github.com/JoshkieChan/Detailer-Website')
+    ).toHaveAttribute('href', 'https://github.com/JoshkieChan/Signal-Source')
     expect(
       screen
         .getAllByRole('link')
