@@ -47,17 +47,43 @@ describe('recruiter navigation', () => {
     expect(toggle).toHaveFocus()
   })
 
-  it('links to the approved email and keeps the pending résumé hidden', () => {
+  it('links to the approved email and existing résumé', () => {
     render(<App />)
     expect(screen.getByRole('link', { name: /Get in touch/ })).toHaveAttribute(
       'href',
       `mailto:${profile.email}`,
     )
-    expect(
-      screen.queryByRole('link', { name: /résumé/i }),
-    ).not.toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /résumé/i })).toHaveAttribute(
+      'href',
+      '/resume.pdf',
+    )
     expect(
       screen.queryByRole('link', { name: /Find me on GitHub/ }),
     ).not.toBeInTheDocument()
+  })
+
+  it('changes project screenshots by keyboard and exposes the selected state', async () => {
+    const user = userEvent.setup()
+    render(<App />)
+    const controls = screen.getByRole('group', {
+      name: 'SignalSource screenshots',
+    })
+    const booking = within(controls).getByRole('button', {
+      name: 'Booking',
+    })
+    booking.focus()
+    await user.keyboard('{Enter}')
+    expect(booking).toHaveAttribute('aria-pressed', 'true')
+    expect(
+      within(controls).getByRole('button', { name: 'Detailing' }),
+    ).toHaveAttribute('aria-pressed', 'false')
+    expect(
+      screen.getByRole('img', { name: /SignalSource booking configuration/ }),
+    ).toHaveAttribute('src', '/images/signal-booking-desktop.webp')
+    expect(
+      screen.getByRole('link', {
+        name: 'Open SignalSource Booking screenshot at full size',
+      }),
+    ).toHaveAttribute('href', '/images/signal-booking-desktop.webp')
   })
 })

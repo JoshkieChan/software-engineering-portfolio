@@ -1,6 +1,7 @@
 import type { Project } from '../content'
 import { Arrow } from './Icons'
 import { Architecture } from './Architecture'
+import { ProjectGallery } from './ProjectGallery'
 
 export function ProjectCard({ project }: { project: Project }) {
   const url = `https://github.com/JoshkieChan/${project.repository}`
@@ -9,7 +10,15 @@ export function ProjectCard({ project }: { project: Project }) {
       className={`project-card ${project.id === 'signal' ? 'flagship' : ''}`}
       aria-labelledby={`${project.id}-title`}
     >
-      <Architecture kind={project.id} />
+      {project.screenshots ? (
+        <ProjectGallery
+          name={project.name}
+          id={project.id}
+          screenshots={project.screenshots}
+        />
+      ) : (
+        <Architecture kind={project.id} />
+      )}
       <div className="project-body">
         <div className="project-eyebrow">
           <span>
@@ -46,6 +55,8 @@ export function ProjectCard({ project }: { project: Project }) {
             <p>{project.challenge}</p>
             <h4>The implementation</h4>
             <p>{project.solution}</p>
+            <h4>Architecture</h4>
+            <p>{project.architecture}</p>
             <p className="project-status">
               <strong>Project scope.</strong> {project.status}
             </p>

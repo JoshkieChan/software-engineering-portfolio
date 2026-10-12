@@ -1779,3 +1779,121 @@ summary,
     max-width: 100%;
   }
 }
+
+/* Real project screens retain the portfolio's existing card language. */
+.project-gallery {
+  min-width: 0;
+  padding: 24px;
+  background: #e7e9ee;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+}
+.signal-gallery {
+  background: #e4ead7;
+}
+.gallery-eyebrow {
+  display: flex;
+  justify-content: space-between;
+  font: 9px var(--mono);
+  letter-spacing: 1px;
+  color: #4e5960;
+}
+.gallery-figure {
+  margin: 0;
+  min-width: 0;
+}
+.gallery-figure > a {
+  display: block;
+  border: 1px solid #c8cebf;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #f8f9fb;
+}
+.gallery-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1440 / 1100;
+  object-fit: contain;
+  object-position: top;
+}
+.gallery-figure figcaption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  font-size: 11px;
+  color: #445344;
+  margin-top: 10px;
+}
+.gallery-figure figcaption > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+}
+.gallery-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.gallery-controls button {
+  border: 1px solid #a9b5a2;
+  background: #f8faf3;
+  color: #344c40;
+  border-radius: 4px;
+  padding: 8px 10px;
+  min-height: 36px;
+  font-size: 10px;
+}
+.gallery-controls button[aria-pressed='true'] {
+  background: var(--green);
+  border-color: var(--green);
+  color: #fff;
+}
+.gallery-controls button:hover {
+  border-color: var(--green);
+}
+.gallery-caption {
+  font-size: 9px;
+  color: #4e5960;
+}
+@media (max-width: 580px) {
+  .project-gallery {
+    padding: 20px;
+  }
+  .gallery-controls button {
+    min-height: 44px;
+  }
+  .gallery-eyebrow {
+    font-size: 8px;
+  }
+}
+@media print {
+  .project-gallery {
+    display: none;
+  }
+}
+@media (min-width: 581px) {
+  .project-card:not(.flagship) > .architecture,
+  .project-card:not(.flagship) > .project-gallery {
+    height: 420px;
+    flex-shrink: 0;
+  }
+  .stratus-gallery {
+    justify-content: flex-start;
+  }
+  .stratus-gallery .gallery-figure img {
+    height: 210px;
+  }
+  .project-card:not(.flagship) > .scout-art {
+    justify-content: center;
+  }
+  .scout-art .art-caption {
+    position: absolute;
+    top: 24px;
+    width: calc(100% - 48px);
+  }
+}

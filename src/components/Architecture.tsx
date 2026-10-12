@@ -67,7 +67,7 @@ export function Architecture({
       <div
         className="architecture scout-art"
         role="img"
-        aria-label="Opportunity Scout pipeline: Playwright worker sends listings over HTTP to a FastAPI validator, which returns rule-based tiers for Discord routing."
+        aria-label="Opportunity Scout pipeline: marketplace discovery through a Playwright worker sends listings over HTTP to FastAPI and Pydantic validation, followed by deterministic rule-based scoring and dry-run output or optional Discord routing."
       >
         <div className="art-caption">
           <span className="small-dot" /> AUTOMATION PIPELINE{' '}
@@ -87,7 +87,7 @@ export function Architecture({
           </div>
         </div>
         <div className="routing">
-          <span className="route-label">RULE-BASED ROUTING</span>
+          <span className="route-label">DETERMINISTIC SCORING</span>
           <div>
             <span>
               A <small>Priority</small>
@@ -100,7 +100,9 @@ export function Architecture({
             </span>
           </div>
         </div>
-        <span className="diagram-label">Architecture illustration</span>
+        <span className="diagram-label">
+          Dry-run output · optional Discord routing
+        </span>
       </div>
     )
   return (

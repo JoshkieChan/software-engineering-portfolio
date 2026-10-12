@@ -14,6 +14,7 @@ pnpm dev
 Vite prints the local URL. No database, account, secret, or API key is needed.
 
 ```sh
+pnpm format:check
 pnpm lint
 pnpm typecheck
 pnpm test
@@ -24,7 +25,7 @@ pnpm test:e2e
 pnpm preview
 ```
 
-`pnpm check` runs lint, type checking, unit tests, and production build. Browser tests serve the production `dist/` output on port 5199, so run `pnpm build` before `pnpm test:e2e`. GitHub Actions also runs the dependency audit, Chromium browser tests, and automated axe accessibility checks on desktop and mobile. The workflow must be pushed to GitHub before hosted CI can execute.
+`pnpm check` runs formatting, lint, type checking, unit tests, and production build. Browser tests serve the production `dist/` output on port 5199, so run `pnpm build` before `pnpm test:e2e`. [GitHub Actions](https://github.com/JoshkieChan/software-engineering-portfolio/actions/workflows/ci.yml) runs these checks, dependency auditing, and Chromium workflow/accessibility tests at desktop, tablet, and mobile sizes.
 
 ## Content and configuration
 
@@ -32,11 +33,11 @@ pnpm preview
 - `src/App.tsx`: hero, personal background, approach, and page composition.
 - `src/components/`: navigation, project cards, architecture illustrations, and small icons.
 - `src/styles.css`: design tokens, layouts, responsive behavior, focus styles, reduced-motion and print rules.
-- `docs/SOURCES.md`: repository evidence, claim boundaries, and review date.
+- `docs/ASSETS.md`: screenshot provenance and project attribution.
 
-The contact button opens `mailto:joshkiechan12345@gmail.com`, as approved by the owner. Contact settings live in `src/content.ts`. A résumé can live at `public/resume.pdf` with the URL `/resume.pdf`. Empty values hide these links; the résumé link remains hidden until a résumé is supplied. There is no fake contact form or missing résumé link.
+The contact button opens `mailto:joshkiechan12345@gmail.com`. Contact settings live in `src/content.ts`. The existing one-page résumé is served from `public/resume.pdf`; `resumeUrl` points to `/resume.pdf`.
 
-All project graphics are original architecture illustrations, explicitly labeled. They do not represent product screenshots, real users, transactions, or measured outcomes. The font is bundled locally; there are no external fonts, analytics, cookies, or backend requests.
+SignalSource and Stratus One feature real application screenshots from their repositories, with accessible gallery controls and full-size image links. Example booking and demo records are explicitly labeled. Opportunity Scout retains a service architecture illustration. The font and images are served locally; no analytics, cookies, database, or API credentials are required.
 
 ## Deployment
 
@@ -46,6 +47,8 @@ All project graphics are original architecture illustrations, explicitly labeled
 2. Add a canonical link and `og:url` for the actual domain; do not use a placeholder domain.
 3. Add a sitemap using that domain if desired.
 4. Verify the deployed page, social-card preview, contact details, and résumé link.
+
+For a static host, use `pnpm install --frozen-lockfile`, build with `pnpm build`, and publish `dist`. No environment variables or backend provisioning are needed. Navigation uses page anchors, so no application-route rewrites are required. Preview the production artifact locally with `pnpm preview`.
 
 ## Design and accessibility
 
