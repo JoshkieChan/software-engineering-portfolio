@@ -110,9 +110,13 @@ test('real screenshots, implementation links, and résumé are available', async
     await card.locator('summary').click()
     if (!project.screenshots) continue
     for (const screenshot of project.screenshots) {
-      await card
-        .getByRole('button', { name: screenshot.label, exact: true })
-        .click()
+      const control = card.getByRole('button', {
+        name: screenshot.label,
+        exact: true,
+      })
+      await control.focus()
+      await control.press('Enter')
+      await expect(control).toHaveAttribute('aria-pressed', 'true')
       const image = card.getByRole('img', { name: screenshot.alt, exact: true })
       await image.scrollIntoViewIfNeeded()
       await expect(image).toBeVisible()

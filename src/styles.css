@@ -1897,3 +1897,28 @@ summary,
     width: calc(100% - 48px);
   }
 }
+
+/* A secondary cross-platform case study closes the project sequence. */
+.cross-platform {
+  grid-column: 1 / -1;
+}
+.founder-gallery {
+  background: #e7e9ee;
+}
+.founder-gallery .gallery-figure img {
+  aspect-ratio: 1440 / 1000;
+}
+@media (min-width: 901px) {
+  .project-card.cross-platform {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .project-card.cross-platform > .project-gallery {
+    height: 100%;
+  }
+}
+@media (min-width: 581px) and (max-width: 900px) {
+  .project-card.cross-platform > .project-gallery {
+    height: auto;
+  }
+}

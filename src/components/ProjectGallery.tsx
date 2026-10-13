@@ -65,7 +65,9 @@ export function ProjectGallery({
       <p className="gallery-caption">
         {id === 'signal'
           ? 'Real application screens · synthetic booking data'
-          : 'Application demo · fictional fixture data'}
+          : id === 'founder'
+            ? 'Web application screens · synthetic test data'
+            : 'Application demo · fictional fixture data'}
       </p>
     </div>
   )

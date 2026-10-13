@@ -15,7 +15,7 @@ export interface ProjectScreenshot {
 }
 
 export interface Project {
-  id: 'signal' | 'scout' | 'stratus'
+  id: 'signal' | 'scout' | 'stratus' | 'founder'
   number: string
   name: string
   category: string
@@ -171,13 +171,83 @@ export const projects: Project[] = [
       },
     ],
   },
+  {
+    id: 'founder',
+    number: '04',
+    name: 'FounderType',
+    category: 'Cross-platform application',
+    description:
+      'An Expo and React Native commitment application for web and native platforms: a seven-question diagnostic, one public 30-day commitment, and daily accountability.',
+    stack: [
+      'React Native',
+      'Expo',
+      'TypeScript',
+      'Supabase',
+      'PostgreSQL',
+      'Playwright',
+    ],
+    highlights: [
+      'Shared React Native / React Native Web application',
+      'Anonymous Auth ownership and PostgreSQL row-level security',
+      'Deterministic rules; browser and database security tests',
+    ],
+    challenge:
+      'A shared mobile/web workflow needs consistent commitment rules and clear ownership boundaries, even when accounts use anonymous sessions.',
+    solution:
+      'Expo SDK 54 screens use React Navigation, context, and hooks. The onboarding diagnostic maps local rules to a builder pattern, followed by commitments, daily check-ins, user-triggered weekly receipts, and a public feed. PostgreSQL constraints and RLS enforce ownership; a transactional check-in function records one check-in per UTC date. Edge Functions verify web hCaptcha and restrict optional Resend receipt email. Jest, Playwright, and PGlite migration/RLS tests run in GitHub Actions. EAS profiles and a Metro web export support native build and static Vercel delivery configuration.',
+    status:
+      'Native CAPTCHA remains incomplete, blocking first-time native commitment creation; no store release is claimed. Local tests do not establish hosted Supabase operation. Anonymous ownership depends on session persistence. There is no server push, scheduled receipt-email worker, or feed moderation/reporting. Provider acceptance does not prove inbox delivery. Diagnostic results are deterministic rules, not AI or clinical assessments; check-ins are self-reported.',
+    repository: 'FounderType',
+    sourcePath:
+      'supabase/migrations/20261012194553_enforce_accountability_boundaries.sql',
+    architecture:
+      'React Native / React Native Web → React Navigation + context/hooks → Supabase Auth + PostgreSQL/RLS. Edge Functions connect hCaptcha and optional Resend email; Sentry diagnostics are enabled only when configured.',
+    screenshots: [
+      {
+        src: '/images/founder-02-diagnostic.webp',
+        label: 'Diagnostic',
+        alt: 'FounderType seven-question diagnostic showing rule-based answer choices.',
+        width: 1440,
+        height: 1000,
+      },
+      {
+        src: '/images/founder-03-result.webp',
+        label: 'Result',
+        alt: 'FounderType builder-pattern result with strengths and a suggested next step from deterministic rules.',
+        width: 1440,
+        height: 1000,
+      },
+      {
+        src: '/images/founder-04-commitment.webp',
+        label: 'Commitment',
+        alt: 'FounderType 30-day public commitment form with a fictional garden-planner goal and daily action.',
+        width: 1440,
+        height: 1000,
+      },
+      {
+        src: '/images/founder-05-check-in.webp',
+        label: 'Check-in',
+        alt: 'FounderType daily check-in and weekly receipt controls for a fictional 30-day commitment.',
+        width: 1440,
+        height: 1000,
+      },
+      {
+        src: '/images/founder-07-public-feed.webp',
+        label: 'Public feed',
+        alt: 'FounderType public accountability feed showing a synthetic commitment, progress, and owner controls.',
+        width: 1440,
+        height: 1000,
+      },
+    ],
+  },
 ]
 
 export const skills = [
   {
     title: 'Interfaces',
     detail: 'Accessible, responsive application UI.',
-    items: 'React · TypeScript · JavaScript · HTML / CSS · Tailwind CSS',
+    items:
+      'React · React Native / Expo · TypeScript · JavaScript · HTML / CSS · Tailwind CSS',
   },
   {
     title: 'Services & data',

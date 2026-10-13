@@ -1,6 +1,6 @@
 # Joshua Caburian — Software Engineering Portfolio
 
-A focused portfolio built with React, strict TypeScript, Vite, and custom responsive CSS. Three source-backed case studies demonstrate full-stack applications, backend automation, and frontend architecture.
+A focused portfolio built with React, strict TypeScript, Vite, and custom responsive CSS. Source-backed case studies demonstrate full-stack applications, backend automation, frontend architecture, and cross-platform mobile/web development.
 
 ## Run locally
 

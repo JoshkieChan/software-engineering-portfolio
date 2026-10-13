@@ -7,7 +7,7 @@ export function ProjectCard({ project }: { project: Project }) {
   const url = `https://github.com/JoshkieChan/${project.repository}`
   return (
     <article
-      className={`project-card ${project.id === 'signal' ? 'flagship' : ''}`}
+      className={`project-card ${project.id === 'signal' ? 'flagship' : project.id === 'founder' ? 'cross-platform' : ''}`}
       aria-labelledby={`${project.id}-title`}
     >
       {project.screenshots ? (
@@ -16,9 +16,9 @@ export function ProjectCard({ project }: { project: Project }) {
           id={project.id}
           screenshots={project.screenshots}
         />
-      ) : (
+      ) : project.id !== 'founder' ? (
         <Architecture kind={project.id} />
-      )}
+      ) : null}
       <div className="project-body">
         <div className="project-eyebrow">
           <span>

@@ -5,14 +5,19 @@ import App from './App'
 import { profile } from './content'
 
 describe('recruiter navigation', () => {
-  it('exposes the three projects in priority order with their real source repositories', () => {
+  it('exposes the featured projects in priority order with their real source repositories', () => {
     render(<App />)
     const cards = screen.getAllByRole('article')
     expect(
       cards.map(
         (card) => within(card).getByRole('heading', { level: 3 }).textContent,
       ),
-    ).toEqual(['SignalSource', 'Opportunity Scout', 'Stratus One'])
+    ).toEqual([
+      'SignalSource',
+      'Opportunity Scout',
+      'Stratus One',
+      'FounderType',
+    ])
     expect(
       within(cards[0]).getByRole('link', {
         name: /View SignalSource on GitHub/i,

@@ -106,7 +106,7 @@ export default function App() {
                 </h2>
               </div>
               <p>
-                Three projects across the stack.
+                Selected projects across the stack.
                 <br />A closer look at what I build and how I think.
               </p>
             </div>

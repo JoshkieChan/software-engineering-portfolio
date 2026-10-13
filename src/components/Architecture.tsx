@@ -11,7 +11,7 @@ export function Architecture({
         aria-label="SignalSource architecture: customer booking interface connects to pricing and scheduling logic, Supabase data, Helcim payments, and Resend email."
       >
         <div className="art-caption">
-          <span className="small-dot" /> SYSTEM OVERVIEW <span>01 / 03</span>
+          <span className="small-dot" /> SYSTEM OVERVIEW <span>01 / 04</span>
         </div>
         <div className="signal-interface">
           <div className="interface-heading">
@@ -71,7 +71,7 @@ export function Architecture({
       >
         <div className="art-caption">
           <span className="small-dot" /> AUTOMATION PIPELINE{' '}
-          <span>02 / 03</span>
+          <span>02 / 04</span>
         </div>
         <div className="pipeline">
           <div className="pipeline-node">
@@ -113,7 +113,7 @@ export function Architecture({
     >
       <div className="art-caption">
         <span className="small-dot" /> FRONTEND ARCHITECTURE{' '}
-        <span>03 / 03</span>
+        <span>03 / 04</span>
       </div>
       <div className="stratus-layers">
         <div className="layer workflows">
