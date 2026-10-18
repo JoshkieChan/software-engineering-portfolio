@@ -228,3 +228,27 @@ test('follows system light and dark appearance without reloading', async ({
   )
   await expect(page.locator('html')).toHaveCSS('color-scheme', 'light')
 })
+
+test('manual theme selection overrides the device and survives reload', async ({
+  page,
+}) => {
+  await page.emulateMedia({ colorScheme: 'dark' })
+  await page.goto('/')
+  const control = page.getByRole('combobox', { name: 'Theme' })
+  await expect(control).toBeVisible()
+  await control.selectOption('light')
+  await expect(page.locator('html')).toHaveCSS('color-scheme', 'light')
+  await page.reload()
+  await expect(control).toHaveValue('light')
+  await expect(page.locator('html')).toHaveCSS('color-scheme', 'light')
+  await page.emulateMedia({ colorScheme: 'light' })
+  await control.focus()
+  await control.press('End')
+  await control.press('Enter')
+  await expect(control).toHaveValue('dark')
+  await expect(page.locator('html')).toHaveCSS('color-scheme', 'dark')
+  await control.selectOption('system')
+  await expect(page.locator('html')).toHaveCSS('color-scheme', 'light')
+  await page.emulateMedia({ colorScheme: 'dark' })
+  await expect(page.locator('html')).toHaveCSS('color-scheme', 'dark')
+})

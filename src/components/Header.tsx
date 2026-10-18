@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { ThemeControl } from './ThemeControl'
 import { Arrow, Mark } from './Icons'
 
 export function Header() {
@@ -54,6 +55,7 @@ export function Header() {
           Let’s connect <Arrow diagonal />
         </a>
       </nav>
+      <ThemeControl />
     </header>
   )
 }
