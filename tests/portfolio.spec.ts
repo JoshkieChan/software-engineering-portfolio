@@ -179,3 +179,52 @@ test('every internal navigation target resolves', async ({ page }) => {
     await expect(page).toHaveURL(new RegExp(`${hash}$`))
   }
 })
+
+test('follows system light and dark appearance without reloading', async ({
+  page,
+}, testInfo) => {
+  await page.emulateMedia({ colorScheme: 'light' })
+  await page.goto('/')
+  await expect(page.locator('html')).toHaveCSS(
+    'background-color',
+    'rgb(245, 245, 239)',
+  )
+  await page.emulateMedia({ colorScheme: 'dark' })
+  await expect(page.locator('html')).toHaveCSS(
+    'background-color',
+    'rgb(21, 28, 24)',
+  )
+  await expect(page.locator('html')).toHaveCSS('color-scheme', 'dark')
+  for (const summary of await page.locator('summary').all())
+    await summary.click()
+  const toggle = page.getByRole('button', { name: /Menu|Close/ })
+  if (await toggle.isVisible()) await toggle.click()
+  const results = await new AxeBuilder({ page })
+    .withTags(['wcag2a', 'wcag2aa', 'wcag21aa'])
+    .analyze()
+  expect(results.violations).toEqual([])
+  for (const summary of await page.locator('summary').all())
+    await summary.click()
+  if (await toggle.isVisible()) await toggle.click()
+  for (const image of await page.locator('.gallery-figure img').all()) {
+    await image.scrollIntoViewIfNeeded()
+    await expect
+      .poll(() =>
+        image.evaluate(
+          (el: HTMLImageElement) => el.complete && el.naturalWidth > 0,
+        ),
+      )
+      .toBe(true)
+  }
+  await page.getByRole('heading', { level: 1 }).scrollIntoViewIfNeeded()
+  await page.screenshot({
+    path: testInfo.outputPath('dark.png'),
+    fullPage: true,
+  })
+  await page.emulateMedia({ colorScheme: 'light' })
+  await expect(page.locator('html')).toHaveCSS(
+    'background-color',
+    'rgb(245, 245, 239)',
+  )
+  await expect(page.locator('html')).toHaveCSS('color-scheme', 'light')
+})

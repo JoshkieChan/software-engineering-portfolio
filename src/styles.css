@@ -1,7 +1,8 @@
 :root {
   font-family: 'Manrope Variable', Arial, sans-serif;
-  color: #252e29;
-  background: #f5f5ef;
+  color-scheme: light;
+  color: var(--ink);
+  background: var(--paper);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -1920,5 +1921,121 @@ summary,
 @media (min-width: 581px) and (max-width: 900px) {
   .project-card.cross-platform > .project-gallery {
     height: auto;
+  }
+}
+
+/* Follow the device theme immediately, including changes while the page is open. */
+@media screen and (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --paper: #151c18;
+    --ink: #edf1e8;
+    --muted: #b4bfb1;
+    --line: #3b493e;
+    --green: #a9cfb8;
+  }
+  a:focus-visible,
+  button:focus-visible,
+  summary:focus-visible {
+    outline-color: #ddebab;
+  }
+  .hero h1 > span {
+    color: #b0bf9f;
+  }
+  .hero-intro,
+  .skill-group .skill-items {
+    color: #ced8c7;
+  }
+  .navigation a:hover,
+  .repo-link:hover {
+    color: #ddebab;
+  }
+  .menu-toggle {
+    color: var(--ink);
+  }
+  .primary,
+  .skip-link,
+  .gallery-controls button[aria-pressed='true'] {
+    background: #a9cfb8;
+    color: #172d23;
+  }
+  .primary:hover {
+    background: #c1dfca;
+  }
+  .secondary,
+  .project-card {
+    background: #1d2720;
+  }
+  .secondary,
+  .navigation .nav-contact,
+  .orbital,
+  .system-layer,
+  .credential-icon,
+  .approach-symbol,
+  .skill-group {
+    border-color: var(--line);
+  }
+  .layer-front {
+    background: #2b392a;
+  }
+  .layer-middle {
+    background: #344336;
+  }
+  .layer-back {
+    background: #234e43;
+  }
+  .layer-back .layer-index {
+    color: #edf1e8;
+  }
+  .layer-index,
+  .skill-number,
+  .details-plus,
+  .highlights li > span,
+  .approach-symbol,
+  .credential-icon {
+    color: #b9ce9d;
+  }
+  .featured-tag {
+    background: #34462e;
+    color: #ddebab;
+  }
+  .tags li {
+    background: #29352a;
+    border-color: var(--line);
+    color: #c8d5bf;
+  }
+  .skills-section,
+  .credential-icon {
+    background: #222e24;
+  }
+  .project-gallery {
+    background: #27302e;
+  }
+  .signal-gallery {
+    background: #2c3827;
+  }
+  .gallery-eyebrow,
+  .gallery-caption,
+  .gallery-figure figcaption {
+    color: #c4d0bf;
+  }
+  .gallery-figure > a {
+    background: #1b211e;
+    border-color: #56664f;
+  }
+  .gallery-controls button {
+    background: #1d2720;
+    border-color: #7c8e74;
+    color: #e0e9d8;
+  }
+  .gallery-controls button:hover {
+    border-color: #ddebab;
+  }
+  /* Product captures and the architecture illustration retain their original colors. */
+  .architecture {
+    color: #252e29;
+    --muted: #62695f;
+    --green: #234e43;
+    --line: #dce0d5;
   }
 }
