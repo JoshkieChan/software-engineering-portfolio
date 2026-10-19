@@ -7,3 +7,6 @@ test-results/
 playwright-report/
 artifacts/
 *.local
+
+.vercel
+.env*.local

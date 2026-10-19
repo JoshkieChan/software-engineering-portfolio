@@ -2049,7 +2049,7 @@ summary,
   font-size: 11px;
   white-space: nowrap;
 }
-.theme-control select {
+.theme-control button {
   font: inherit;
   color: var(--ink);
   background: var(--paper);
@@ -2058,7 +2058,7 @@ summary,
   min-height: 44px;
   padding: 8px;
 }
-.theme-control select:focus-visible {
+.theme-control button:focus-visible {
   outline: 3px solid var(--green);
   outline-offset: 3px;
 }
@@ -2094,4 +2094,22 @@ summary,
   .theme-control {
     display: none;
   }
+}
+
+.theme-control {
+  gap: 2px;
+}
+.theme-control button {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  padding: 0;
+}
+.theme-control button[aria-pressed='true'] {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+.theme-control button:hover {
+  border-color: var(--green);
 }
